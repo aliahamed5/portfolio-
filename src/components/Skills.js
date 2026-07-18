@@ -32,6 +32,7 @@ export default function Skills() {
               <div className="flex flex-wrap gap-3">
                 {items.map(skill => (
                   <div key={skill.name} className="flex items-center gap-2 bg-darkBg px-4 py-2 rounded-lg border border-textSec/20 hover:border-primary/50 hover:text-primary transition">
+                    {skill.icon}
                     <span className="text-sm font-medium">{skill.name}</span>
                   </div>
                 ))}

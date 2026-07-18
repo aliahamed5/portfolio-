@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const mailtoUrl = `mailto:alia.mohamed.h1@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}%0D%0A%0D%0AReply to: ${formData.email}`;
+    window.location.href = mailtoUrl;
+  };
+
   return (
     <section id="contact" className="py-20 px-6 md:px-24">
       <div className="max-w-6xl mx-auto">
@@ -25,7 +33,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-poppins font-semibold text-textMain">Email</h4>
-                  <p>alia.mohamed@example.com</p>
+                  <p>alia.mohamed.h1@gmail.com</p>
                 </div>
               </div>
               
@@ -35,7 +43,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-poppins font-semibold text-textMain">Phone</h4>
-                  <p>+20 123 456 7890</p>
+                  <p>01150626281</p>
                 </div>
               </div>
 
@@ -45,7 +53,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-poppins font-semibold text-textMain">Location</h4>
-                  <p>Giza, Egypt</p>
+                  <p>Cairo, Egypt</p>
                 </div>
               </div>
             </div>
@@ -70,20 +78,41 @@ export default function Contact() {
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary opacity-20 blur-3xl rounded-full"></div>
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent opacity-20 blur-3xl rounded-full"></div>
 
-            <form className="relative z-10 flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="relative z-10 flex flex-col gap-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-textSec mb-2">Name</label>
-                <input type="text" placeholder="Your Name" className="w-full bg-darkBg border border-textSec/30 rounded-lg px-4 py-3 text-textMain focus:outline-none focus:border-primary transition" />
+                <input 
+                  type="text" 
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  placeholder="Your Name" 
+                  className="w-full bg-darkBg border border-textSec/30 rounded-lg px-4 py-3 text-textMain focus:outline-none focus:border-primary transition" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-textSec mb-2">Email</label>
-                <input type="email" placeholder="Your Email" className="w-full bg-darkBg border border-textSec/30 rounded-lg px-4 py-3 text-textMain focus:outline-none focus:border-primary transition" />
+                <input 
+                  type="email" 
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  placeholder="Your Email" 
+                  className="w-full bg-darkBg border border-textSec/30 rounded-lg px-4 py-3 text-textMain focus:outline-none focus:border-primary transition" 
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-textSec mb-2">Message</label>
-                <textarea rows="4" placeholder="Your Message" className="w-full bg-darkBg border border-textSec/30 rounded-lg px-4 py-3 text-textMain focus:outline-none focus:border-primary transition resize-none"></textarea>
+                <textarea 
+                  rows="4" 
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  placeholder="Your Message" 
+                  className="w-full bg-darkBg border border-textSec/30 rounded-lg px-4 py-3 text-textMain focus:outline-none focus:border-primary transition resize-none"
+                ></textarea>
               </div>
-              <button className="w-full bg-primary hover:bg-accent text-white font-medium py-3 rounded-lg transition shadow-[0_0_15px_rgba(37,99,235,0.4)] flex justify-center items-center gap-2">
+              <button type="submit" className="w-full bg-primary hover:bg-accent text-white font-medium py-3 rounded-lg transition shadow-[0_0_15px_rgba(37,99,235,0.4)] flex justify-center items-center gap-2">
                 Send Message <FaEnvelope />
               </button>
             </form>
