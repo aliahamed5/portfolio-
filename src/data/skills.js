@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWindows, FaFileExcel, FaChartBar } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaFileExcel, FaChartBar } from 'react-icons/fa';
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiTailwindcss } from "react-icons/si";
 import { MdOutlineDevices, MdOutlineLeaderboard, MdOutlineTimer, MdOutlineWbIncandescent } from "react-icons/md";
