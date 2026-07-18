@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWindows } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWindows, FaFileExcel, FaChartBar } from 'react-icons/fa';
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiTailwindcss, SiMicrosoftexcel, SiPowerbi } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
 import { MdOutlineDevices, MdOutlineLeaderboard, MdOutlineTimer, MdOutlineWbIncandescent } from "react-icons/md";
 import { BiCodeAlt, BiChat, BiBrain } from "react-icons/bi";
 import { DiGit } from "react-icons/di";
@@ -19,8 +19,8 @@ export const skills = {
     { name: "Responsive Design", icon: <MdOutlineDevices className="text-gray-400 text-xl" /> }
   ],
   data: [
-    { name: "Microsoft Excel", icon: <SiMicrosoftexcel className="text-[#217346] text-xl" /> },
-    { name: "Power BI", icon: <SiPowerbi className="text-[#F2C811] text-xl" /> }
+    { name: "Microsoft Excel", icon: <FaFileExcel className="text-[#217346] text-xl" /> },
+    { name: "Power BI", icon: <FaChartBar className="text-[#F2C811] text-xl" /> }
   ],
   tools: [
     { name: "Git", icon: <DiGit className="text-[#F05032] text-xl" /> },
