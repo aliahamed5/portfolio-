@@ -79,7 +79,7 @@ function App() {
             <div className="w-64 h-64 md:w-96 md:h-96 rounded-full border border-primary/30 relative flex justify-center items-center">
               <div className="absolute inset-0 rounded-full shadow-[0_0_80px_#2563EB] opacity-40 blur-2xl"></div>
               <div className="w-[90%] h-[90%] rounded-full overflow-hidden border-2 border-primary relative z-10 bg-gray-100 dark:bg-cardBg flex items-center justify-center">
-                <img src={`${process.env.PUBLIC_URL}/photo_2026-07-16_15-38-45.jpg`} alt="Alia Mohamed" className="w-full h-full object-cover" onError={(e) => { e.target.onerror = null; e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=600&fit=crop'; }} />
+                <img src={`${process.env.PUBLIC_URL}/profile.jpg`} alt="Alia Mohamed" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
