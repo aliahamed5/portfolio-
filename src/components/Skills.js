@@ -3,13 +3,27 @@ import { motion } from 'framer-motion';
 import { skills } from '../data/skills';
 
 export default function Skills() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemAnim = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
     <section id="skills" className="py-20 px-6 md:px-24 bg-cardBg/30">
       <div className="max-w-6xl mx-auto">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-poppins font-bold mb-4">My Skills</h2>
@@ -20,10 +34,10 @@ export default function Skills() {
           {Object.entries(skills).map(([category, items], idx) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial="hidden"
+              whileInView="show"
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              variants={container}
               className="bg-cardBg p-8 rounded-2xl border border-primary/10 hover:border-primary/40 transition shadow-xl"
             >
               <h3 className="text-xl font-poppins font-bold mb-6 capitalize text-accent">
@@ -31,10 +45,14 @@ export default function Skills() {
               </h3>
               <div className="flex flex-wrap gap-3">
                 {items.map(skill => (
-                  <div key={skill.name} className="flex items-center gap-2 bg-darkBg px-4 py-2 rounded-lg border border-textSec/20 hover:border-primary/50 hover:text-primary transition">
+                  <motion.div 
+                    variants={itemAnim}
+                    key={skill.name} 
+                    className="flex items-center gap-2 bg-gray-100 dark:bg-darkBg text-slate-800 dark:text-textMain px-4 py-2 rounded-lg border border-slate-300 dark:border-textSec/20 hover:border-primary/50 hover:text-primary transition hover:scale-105 hover:shadow-lg shadow-black/50"
+                  >
                     {skill.icon}
                     <span className="text-sm font-medium">{skill.name}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

@@ -59,12 +59,20 @@ export default function Contact() {
             </div>
 
             <div className="flex gap-4">
-              <a href="https://github.com/aliahamed5" target="_blank" rel="noreferrer" className="w-10 h-10 bg-cardBg rounded-full flex items-center justify-center text-textMain hover:bg-primary hover:text-white transition shadow-lg">
-                <FaGithub />
-              </a>
-              <a href="https://www.linkedin.com/in/alia-mohamed-b390a0343" target="_blank" rel="noreferrer" className="w-10 h-10 bg-cardBg rounded-full flex items-center justify-center text-textMain hover:bg-primary hover:text-white transition shadow-lg">
-                <FaLinkedin />
-              </a>
+              <motion.a 
+                whileHover={{ scale: 1.1, y: -5 }}
+                href="https://github.com/aliahamed5" target="_blank" rel="noreferrer" 
+                className="w-12 h-12 bg-cardBg rounded-full flex items-center justify-center text-textMain hover:bg-primary hover:text-white transition shadow-lg shadow-black/20"
+              >
+                <FaGithub size={20} />
+              </motion.a>
+              <motion.a 
+                whileHover={{ scale: 1.1, y: -5 }}
+                href="https://www.linkedin.com/in/alia-mohamed-b390a0343" target="_blank" rel="noreferrer" 
+                className="w-12 h-12 bg-cardBg rounded-full flex items-center justify-center text-textMain hover:bg-primary hover:text-white transition shadow-lg shadow-black/20"
+              >
+                <FaLinkedin size={20} />
+              </motion.a>
             </div>
           </motion.div>
 

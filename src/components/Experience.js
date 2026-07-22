@@ -52,50 +52,58 @@ const experienceData = [
 export default function Experience() {
   return (
     <section id="certification" className="py-20 px-6 md:px-24">
-      <h2 className="text-3xl font-poppins font-bold mb-16 text-center">Experience & Training</h2>
-      
-      <div className="relative max-w-4xl mx-auto">
-        {/* Timeline Line */}
-        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary/30 h-full rounded"></div>
-        
-        <div className="space-y-12">
-          {experienceData.map((item, idx) => {
-            const isEven = idx % 2 === 0;
-            return (
+      <div className="max-w-4xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl font-poppins font-bold mb-4">Experience & Certification</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded"></div>
+        </motion.div>
+
+        <div className="relative border-l-2 border-primary/30 ml-4 md:ml-0">
+          {experienceData.map((item, idx) => (
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: idx * 0.2, duration: 0.5, type: 'spring' }}
+              key={item.id} 
+              className="mb-10 ml-8 relative group"
+            >
               <motion.div 
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row-reverse' : ''}`}
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: idx * 0.2 + 0.3, type: 'spring' }}
+                className="absolute -left-[41px] top-1 w-5 h-5 bg-accent rounded-full border-4 border-darkBg group-hover:bg-primary transition shadow-[0_0_15px_#3B82F6] flex items-center justify-center text-[10px]"
               >
-                {/* Center dot */}
-                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-darkBg border-4 border-primary rounded-full items-center justify-center z-10 shadow-[0_0_15px_rgba(37,99,235,0.6)]">
-                  <span className="text-xl">{item.icon}</span>
-                </div>
-                
-                <div className="w-full md:w-1/2 p-4 md:px-8">
-                  <div className={`bg-cardBg/80 backdrop-blur-md p-6 rounded-xl border border-primary/20 hover:border-primary/60 transition duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.2)] ${isEven ? 'md:text-right' : 'md:text-left'} text-center`}>
-                    <h3 className="text-xl font-poppins font-bold text-accent mb-1">{item.title}</h3>
-                    <h4 className="text-md font-medium text-textMain mb-2">{item.organization}</h4>
-                    <span className="inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-4">{item.year}</span>
-                    <p className="text-textSec text-sm leading-relaxed mb-4">{item.description}</p>
-                    {item.credentialLink && (
-                      <a 
-                        href={item.credentialLink} 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="inline-block px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg text-sm font-medium transition duration-300"
-                      >
-                        View Certificate
-                      </a>
-                    )}
-                  </div>
-                </div>
+                {item.icon}
               </motion.div>
-            );
-          })}
+              
+              <div className="bg-cardBg p-6 rounded-xl border border-transparent hover:border-primary/30 transition shadow-lg group-hover:shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                <h3 className="text-xl font-bold font-poppins text-textMain group-hover:text-accent transition">{item.title}</h3>
+                <h4 className="text-primary font-medium mb-1">{item.organization}</h4>
+                <span className="text-xs text-textSec mb-4 block font-mono bg-darkBg w-fit px-2 py-1 rounded">{item.year}</span>
+                <p className="text-textSec text-sm leading-relaxed mb-4">
+                  {item.description}
+                </p>
+                {item.credentialLink && (
+                  <a 
+                    href={item.credentialLink} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-block px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg text-sm font-medium transition duration-300"
+                  >
+                    View Certificate
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
